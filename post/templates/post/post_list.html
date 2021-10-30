@@ -8,6 +8,7 @@
 {% load cloudinary %}
 
 {% block content %}
+{% autoescape off %}
 <div class="container mt-5 mb-5">
     <h2>投稿一覧</h2>
     {% if user.is_authenticated %}
@@ -43,5 +44,5 @@
         {% endfor %}
     </div>
 </div>
-
+{% endautoescape %}
 {% endblock %}
