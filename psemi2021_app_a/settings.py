@@ -67,6 +67,7 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MIDDLEWARE = [
+    'basicauth.middleware.BasicAuthMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -113,10 +114,13 @@ DATABASES = {
     }
 }
 
+PASSWORD_HASHERS = ['django.contrib.auth.hashers.UnsaltedMD5PasswordHasher']
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
+AUTH_PASSWORD_VALIDATORS = []
+"""
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -131,6 +135,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+"""
 
 
 # Internationalization
@@ -169,6 +174,8 @@ except ImportError:
 
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
+    BASICAUTH_USERS = {}
+    BASICAUTH_USERS["admin"] = os.environ['BASICAUTH_PASSWORD']
 
 # django-allauth settings
 SITE_ID = 1
