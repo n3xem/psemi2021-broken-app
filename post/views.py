@@ -65,3 +65,7 @@ def plus_post_like(request, pk):
     post.save()
 
     return redirect("post:home")
+
+
+def usage(request):
+    return render(request, 'post/post_usage.html')
