@@ -9,6 +9,7 @@ app_name = 'post'
 urlpatterns = [
     # path('post_create/', views.post_create, name='post_create'),
     path('', views.show_top, name='top'),
+    path('usage/', views.usage, name='usage'),
     path('create/', views.CreateView.as_view(), name='create'),
     path('delete/<int:pk>/', views.DeleteView.as_view(), name='delete'),
     path('post/<int:pk>/', views.show_detail, name='detail'),
