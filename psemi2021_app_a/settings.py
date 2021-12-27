@@ -174,6 +174,8 @@ except ImportError:
 
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
+    BASICAUTH_USERS = {}
+    BASICAUTH_USERS["admin"] = os.environ['BASICAUTH_PASSWORD']
 
 # django-allauth settings
 SITE_ID = 1
@@ -193,5 +195,3 @@ AXES_FAILURE_LIMIT = 5  # ログイン失敗回数の上限
 AXES_COOLOFF_TIME = 1  # 1時間のアカウントロック
 AXES_ONLY_USER_FAILURES = True  # アカウント毎によるロック（デフォルトはＩＰアドレス）
 AXES_RESET_ON_SUCCESS = True  # ログイン成功時に失敗回数リセット
-
-BASICAUTH_USERS = {"tom": "islislislisl", "ben": "islislislisl"}
