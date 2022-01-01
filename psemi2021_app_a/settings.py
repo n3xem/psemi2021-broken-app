@@ -172,10 +172,12 @@ try:
 except ImportError:
     pass
 
+BASICAUTH_DISABLE = 1
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     BASICAUTH_USERS = {}
     BASICAUTH_USERS["admin"] = os.environ['BASICAUTH_PASSWORD']
+    BASICAUTH_DISABLE = 0
 
 # django-allauth settings
 SITE_ID = 1
