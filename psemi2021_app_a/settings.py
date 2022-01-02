@@ -197,3 +197,5 @@ AXES_FAILURE_LIMIT = 5  # ログイン失敗回数の上限
 AXES_COOLOFF_TIME = 1  # 1時間のアカウントロック
 AXES_ONLY_USER_FAILURES = True  # アカウント毎によるロック（デフォルトはＩＰアドレス）
 AXES_RESET_ON_SUCCESS = True  # ログイン成功時に失敗回数リセット
+
+SESSION_COOKIE_HTTPONLY = False
